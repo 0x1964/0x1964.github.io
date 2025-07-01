@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[SLPD] 0x1964</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6a0dad, #0000ff);
+    }
+  </style>
+</head>
+<body>
+  <img src="https://media.discordapp.net/attachments/1383816435486298172/1389412963244576780/watermark.png" alt="Centered Image">
+  <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return null;
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    var pid = getParameterByName('pid');
+    var gid = getParameterByName('gid');
+    console.log('pid:', pid);
+    console.log('gid:', gid);
+    var robloxURLpc = 'roblox://experiences/start?placeId=' + pid + '&gameInstanceId=' + gid;
+    var robloxURLmobile = 'robloxmobile://placeID=' + pid + '&gameInstanceId=' + gid;
+    window.location.replace(robloxURLpc);
+    setTimeout(function() {
+      window.location.replace(robloxURLmobile);
+    }, 5000);
+  </script>
+</body>
+</html>
